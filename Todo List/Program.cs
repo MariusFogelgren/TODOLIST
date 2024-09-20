@@ -15,11 +15,12 @@ namespace Todo_List
             Console.Write("\nEnter your choice: ");
             var todoListInput = Console.ReadLine();
 
+            
 
             switch (todoListInput)
             {
                 case "1":
-                    Console.WriteLine();
+                    addTask();
                     break;
                 case "2":
                     Console.WriteLine();
@@ -33,13 +34,27 @@ namespace Todo_List
 
             };
 
-            
-
-
+              Console.ReadLine();
         }
-        class TodoListCase 
+
+        static void addTask()
         {
-            
+            Console.Write("Enter your task: ");
+            var task = Console.ReadLine();
         }
+
+        //static  printTask() 
+        //{
+            
+        //}
+
+        //static deleteTaskI()
+        //{
+
+        //}
+
+        //static markTask()
+        //{ 
+        //}
     }
 }
