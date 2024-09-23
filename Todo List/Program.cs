@@ -12,7 +12,7 @@ namespace Todo_List
             Console.WriteLine("This is a todo list");
             while (true)
             {
-
+                Console.ResetColor();
                 Console.WriteLine("\nHere are your choices");
                 Console.WriteLine("1. Add new tasks");
                 Console.WriteLine("2. Print all tasks");
@@ -20,8 +20,6 @@ namespace Todo_List
                 Console.WriteLine("4. Mark a task done");
                 Console.Write("\nEnter your choice: ");
                 var todoListInput = Console.ReadLine();
-
-
 
                 switch (todoListInput)
                 {
@@ -35,18 +33,20 @@ namespace Todo_List
                         deleteTask();
                         break;
                     case "4":
-                        Console.WriteLine();
+                        markTask();
                         break;
+
 
                 };
                 Console.ReadLine();
             }
         }
-
         static void addTask()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Enter your task: ");
+            Console.ResetColor();
             var task = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(task))
@@ -57,32 +57,63 @@ namespace Todo_List
             {
                 Console.WriteLine("Du skal skrive noget");
             }
-
-
         }
-
         public static string printTask()
         {
+            int number = +1;
             Console.Clear();
             Console.WriteLine("Task List:");
             var listofTasks = string.Join(",", _tasks);
-            Console.WriteLine(listofTasks);
+            Console.WriteLine(number + "." + listofTasks);
             Console.ReadLine();
             return listofTasks;
         }
-
         public static string deleteTask()
         {
-        var list = _tasks;
-        Console.WriteLine();
-        Console.Write("What task do you need to remove: ");
-        Console.ReadLine();
+            var listofTasks = Console.ReadLine();
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("What task do you need to remove: ");
+            Console.ResetColor();
+            var taskToRemove = Console.ReadLine();
+
+            if (_tasks.Contains(taskToRemove))
+            {
+                _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
+                Console.WriteLine("You have removed a task");
+            }
+            else
+            {
+                Console.WriteLine("You did not remove a task from the list");
+            }
+
+            Console.ReadLine();
             return "";
         }
-
         static string markTask()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("Enter your task to mark done: ");
+            Console.ResetColor();
+            var task = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(task))
+            {
+                var taskToRemove = Console.ReadLine();
+                _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
+                _tasks = new string[] { task + " is done!" };
+                Console.BackgroundColor = ConsoleColor.White;
+
+            }
+            else
+            {
+                Console.WriteLine("Du skal skrive noget");
+            }
+
             return "";
+
         }
     }
 }
