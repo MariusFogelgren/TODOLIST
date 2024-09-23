@@ -32,7 +32,7 @@ namespace Todo_List
                         printTask();
                         break;
                     case "3":
-                        Console.WriteLine();
+                        deleteTask();
                         break;
                     case "4":
                         Console.WriteLine();
@@ -71,13 +71,18 @@ namespace Todo_List
             return listofTasks;
         }
 
-         static  deleteTask()
+        public static string deleteTask()
         {
-
+        var list = _tasks;
+        Console.WriteLine();
+        Console.Write("What task do you need to remove: ");
+        Console.ReadLine();
+            return "";
         }
 
-        //static markTask()
-        //{ 
-        //}
+        static string markTask()
+        {
+            return "";
+        }
     }
 }
