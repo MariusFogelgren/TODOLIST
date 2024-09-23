@@ -71,10 +71,10 @@ namespace Todo_List
             return listofTasks;
         }
 
-        //static deleteTaskI()
-        //{
+         static  deleteTask()
+        {
 
-        //}
+        }
 
         //static markTask()
         //{ 
