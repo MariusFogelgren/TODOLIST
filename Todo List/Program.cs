@@ -12,7 +12,6 @@ namespace Todo_List
             Console.WriteLine("This is a todo list");
             while (true)
             {
-
                 Console.WriteLine("\nHere are your choices");
                 Console.WriteLine("1. Add new tasks");
                 Console.WriteLine("2. Print all tasks");
@@ -20,8 +19,6 @@ namespace Todo_List
                 Console.WriteLine("4. Mark a task done");
                 Console.Write("\nEnter your choice: ");
                 var todoListInput = Console.ReadLine();
-
-
 
                 switch (todoListInput)
                 {
@@ -38,15 +35,17 @@ namespace Todo_List
                         Console.WriteLine();
                         break;
 
+
                 };
                 Console.ReadLine();
             }
         }
-
         static void addTask()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Enter your task: ");
+            Console.ResetColor();
             var task = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(task))
@@ -57,10 +56,7 @@ namespace Todo_List
             {
                 Console.WriteLine("Du skal skrive noget");
             }
-
-
         }
-
         public static string printTask()
         {
             Console.Clear();
@@ -70,16 +66,25 @@ namespace Todo_List
             Console.ReadLine();
             return listofTasks;
         }
-
         public static string deleteTask()
         {
-        var list = _tasks;
-        Console.WriteLine();
-        Console.Write("What task do you need to remove: ");
-        Console.ReadLine();
+            var listofTasks = Console.ReadLine();
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("What task do you need to remove: ");
+            Console.ResetColor();
+
+            if (string.IsNullOrEmpty(listofTasks))
+            { Console.WriteLine("You have removed an task"); }
+            else
+            {
+                Console.WriteLine("You did not remove a task from the list");
+            }
+
+            Console.ReadLine();
             return "";
         }
-
         static string markTask()
         {
             return "";
