@@ -9,16 +9,23 @@ namespace Todo_List
 
         static void Main(string[] args)
         {
+            int number = 1;
+            
+
+
             Console.WriteLine("This is a todo list");
             while (true)
             {
                 Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\nHere are your choices");
-                Console.WriteLine("1. Add new tasks");
-                Console.WriteLine("2. Print all tasks");
-                Console.WriteLine("3. delete tasks");
-                Console.WriteLine("4. Mark a task done");
-                Console.Write("\nEnter your choice: ");
+                Console.ForegroundColor= ConsoleColor.DarkGreen;
+                Console.WriteLine(number + ". Add new tasks");
+                Console.WriteLine(number + 1 + ". Print all tasks");
+                Console.WriteLine(number + 2 + ". delete tasks");
+                Console.WriteLine(number + 3 + ". Mark a task done");
+                Console.Write    ("\nEnter your choice: ");
+                Console.ResetColor ();
                 var todoListInput = Console.ReadLine();
 
                 switch (todoListInput)
@@ -108,8 +115,9 @@ namespace Todo_List
             {
                 var taskToRemove = Console.ReadLine();
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
-                _tasks = new string[] { task + " is done!" };
                 Console.BackgroundColor = ConsoleColor.White;
+                _tasks = new string[] { task + " is done!" };
+                
 
             }
             else
