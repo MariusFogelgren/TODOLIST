@@ -83,6 +83,11 @@ namespace Todo_List
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
                 Console.WriteLine("You have removed a task");
             }
+
+
+            if (string.IsNullOrEmpty(listofTasks))
+            { Console.WriteLine("You have removed an task"); }
+
             else
             {
                 Console.WriteLine("You did not remove a task from the list");
