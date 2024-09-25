@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Runtime.InteropServices;
-
-namespace Todo_List
+﻿namespace Todo_List
 {
     internal class Program
     {
@@ -10,22 +7,25 @@ namespace Todo_List
         static void Main(string[] args)
         {
             int number = 1;
-            
+
 
 
             Console.WriteLine("This is a todo list");
             while (true)
             {
+                Console.Clear();
                 Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("This is a todo list");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\nHere are your choices");
-                Console.ForegroundColor= ConsoleColor.DarkGreen;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine(number + ". Add new tasks");
                 Console.WriteLine(number + 1 + ". Print all tasks");
                 Console.WriteLine(number + 2 + ". delete tasks");
                 Console.WriteLine(number + 3 + ". Mark a task done");
-                Console.Write    ("\nEnter your choice: ");
-                Console.ResetColor ();
+                Console.Write("\nEnter your choice: ");
+                Console.ResetColor();
                 var todoListInput = Console.ReadLine();
 
                 switch (todoListInput)
@@ -42,10 +42,8 @@ namespace Todo_List
                     case "4":
                         markTask();
                         break;
-
-
                 };
-                Console.ReadLine();
+
             }
         }
         static void addTask()
@@ -84,9 +82,11 @@ namespace Todo_List
             Console.Write("What task do you need to remove: ");
             Console.ResetColor();
             var taskToRemove = Console.ReadLine();
-
+            // Contains tjekker indholdet
             if (_tasks.Contains(taskToRemove))
             {
+                //Denne vil beholde alle andre task undtagen den bruger vik beholde. ToArray laver imputtet om til en array liste
+                // = _tasks gør alt hvad bruger gør bliver gemt inde i varen
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
                 Console.WriteLine("You have removed a task");
             }
@@ -97,6 +97,7 @@ namespace Todo_List
 
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You did not remove a task from the list");
             }
 
@@ -115,18 +116,13 @@ namespace Todo_List
             {
                 var taskToRemove = Console.ReadLine();
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
-                Console.BackgroundColor = ConsoleColor.White;
                 _tasks = new string[] { task + " is done!" };
-                
-
             }
             else
             {
                 Console.WriteLine("Du skal skrive noget");
             }
-
             return "";
-
         }
     }
 }
