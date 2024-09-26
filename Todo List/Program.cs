@@ -69,7 +69,7 @@
             Console.Clear();
             Console.WriteLine("Task List:");
             var listofTasks = string.Join(",", _tasks);
-            Console.WriteLine(number + "." + listofTasks);
+            Console.WriteLine(number + "." + listofTasks + "| not done");
             Console.ReadLine();
             return listofTasks;
         }
@@ -90,10 +90,6 @@
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
                 Console.WriteLine("You have removed a task");
             }
-
-
-            if (string.IsNullOrEmpty(listofTasks))
-            { Console.WriteLine("You have removed an task"); }
 
             else
             {
@@ -116,7 +112,7 @@
             {
                 var taskToRemove = Console.ReadLine();
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
-                _tasks = new string[] { task + " is done!" };
+                _tasks = new string[] { task + " | done" };
             }
             else
             {
