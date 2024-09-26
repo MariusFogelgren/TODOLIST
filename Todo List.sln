@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo List", "Todo List\Todo List.csproj", "{3501059F-91EB-41AE-8624-C449FD5A3913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo List", "Todo List\Todo List.csproj", "{3501059F-91EB-41AE-8624-C449FD5A3913}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "..\WpfApp1\WpfApp1.csproj", "{4E962D42-BEDA-4749-8DB2-626AF32AEF30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3501059F-91EB-41AE-8624-C449FD5A3913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3501059F-91EB-41AE-8624-C449FD5A3913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3501059F-91EB-41AE-8624-C449FD5A3913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E962D42-BEDA-4749-8DB2-626AF32AEF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E962D42-BEDA-4749-8DB2-626AF32AEF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E962D42-BEDA-4749-8DB2-626AF32AEF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E962D42-BEDA-4749-8DB2-626AF32AEF30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -46,6 +46,7 @@
 
             }
         }
+
         static void addTask()
         {
             Console.Clear();
@@ -60,9 +61,10 @@
             }
             else
             {
-                Console.WriteLine("Du skal skrive noget");
+                Console.WriteLine("Du skal skrive noget | You need to write somehing");
             }
         }
+
         public static string printTask()
         {
             int number = +1;
@@ -71,8 +73,10 @@
             var listofTasks = string.Join(",", _tasks);
             Console.WriteLine(number + "." + listofTasks + "| not done");
             Console.ReadLine();
+
             return listofTasks;
         }
+
         public static string deleteTask()
         {
             var listofTasks = Console.ReadLine();
@@ -85,8 +89,8 @@
             // Contains tjekker indholdet
             if (_tasks.Contains(taskToRemove))
             {
-                //Denne vil beholde alle andre task undtagen den bruger vik beholde. ToArray laver imputtet om til en array liste
-                // = _tasks gør alt hvad bruger gør bliver gemt inde i varen
+                //Denne vil beholde alle andre task undtagen den brugeren vik beholde. ToArray laver imputtet om til en array liste
+                // = _tasks gør så alt hvad brugeren gør bliver gemt inde i varen
                 _tasks = _tasks.Where(task => task != taskToRemove).ToArray();
                 Console.WriteLine("You have removed a task");
             }
@@ -116,7 +120,7 @@
             }
             else
             {
-                Console.WriteLine("Du skal skrive noget");
+                Console.WriteLine("Du skal skrive noget | You need to write something");
             }
             return "";
         }
