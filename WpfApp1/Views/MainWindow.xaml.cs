@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Markup;
 using WpfApp1;
 using Task = WpfApp1.Task;
@@ -8,14 +10,15 @@ namespace WpfApp
 {
     public partial class MainWindow : Window
     {
-        private List<Task> taskList = new List<Task>();
+        private ObservableCollection<Task> taskList = new ObservableCollection<Task>();
 
         public MainWindow()
         {
             InitializeComponent();
+            lvDataBinding.ItemsSource = taskList;
         }
 
-        
+
 
         private void addTask_Click (object sender, RoutedEventArgs e)
         {
@@ -26,19 +29,15 @@ namespace WpfApp
                 Title = test, 
                 Status = "not done",
                 Date = DateTime.Now,
+
             };
 
             taskList.Add(newTask);
         }
 
-        private void printTask (object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void deleteTask (object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void markTask(object sender, RoutedEventArgs e)
@@ -50,6 +49,9 @@ namespace WpfApp
         {
         }
 
-       
+        private void lvDataBinding_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

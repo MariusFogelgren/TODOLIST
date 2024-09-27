@@ -9,7 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Image.jpg" />
+    <None Remove="Views\n1368325.png" />
+    <None Remove="Views\Screenshot 2024-09-06 103502.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Image.jpg" />
+    <Resource Include="Views\n1368325.png" />
+    <Resource Include="Views\Screenshot 2024-09-06 103502.png" />
   </ItemGroup>
 
 </Project>
