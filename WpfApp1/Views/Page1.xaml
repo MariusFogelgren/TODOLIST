@@ -1,9 +1,9 @@
 ﻿<Page x:Class="WpfApp.Page1"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Page1" Background="Blue">
+      Title="Page1" Background="Blue" Height="350" Width="525">
     <!-- Set the background color to white -->
     <Grid>
-        <TextBlock Text="Welcome to Page" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+        <TextBlock Text="Welcome to Page" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Arial Black"/>
     </Grid>
 </Page>
