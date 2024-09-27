@@ -9,10 +9,5 @@ namespace WpfApp
             InitializeComponent();
         }
 
-        private void NavigateButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Page1
-            MainFrame.Navigate(new Page1());
-        }
     }
 }
