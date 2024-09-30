@@ -9,12 +9,18 @@ namespace WpfApp1
     class Task
     {
         public string Title { get; set; }
-        public string Status { get; set; }
+        public Status Status { get; set; }
         public DateTime Date { get; set; }
 
         public override string ToString()
         {
             return this.Title + ", " + this.Status + this.Date;
         }
+    }
+
+    enum Status
+    {
+        NotDone,
+        Done
     }
 }
