@@ -11,7 +11,7 @@ namespace WpfApp1
         public string Title { get; set; }
         public Status Status { get; set; }
         public DateTime Date { get; set; }
-
+        public string? Description { get; set; }
         public override string ToString()
         {
             return this.Title + ", " + this.Status + this.Date;
@@ -21,6 +21,6 @@ namespace WpfApp1
     enum Status
     {
         NotDone,
-        Done
+        Done , 
     }
 }

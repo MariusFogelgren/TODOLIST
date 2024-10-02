@@ -3,20 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="WpfApp.MainWindow"
         Title="MainWindow" Height="400" Width="600"
-        WindowState="Maximized" ResizeMode="CanMinimize">       
+        ResizeMode="CanMinimize">
 
 
-    <Grid>
-        
-        <Popup x:Name="popup" Placement="Center">
-            <TextBox x:Name="descriptionBox" HorizontalAlignment="Left" Margin="176,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="134" TextChanged="descriptionBox_TextChanged" Height="15" Text="" Background="{x:Null}">
-                <TextBox.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    </LinearGradientBrush>
-                </TextBox.BorderBrush>
-            </TextBox>
-        </Popup>
-
+    <Grid Width="590" Height="390" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap" Text="TODO List" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="10" FontWeight="Bold">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -25,14 +19,6 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Button Content="Add Task" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Height="19" Width="114" Click="addTask_Click" FontFamily="Segoe UI Black">
-            <Button.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFC71515" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Foreground>
-        </Button>
         <Button Content="Delete Task" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="19" Width="114" Click="deleteTask" FontFamily="Segoe UI Black">
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -57,7 +43,7 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <TextBox x:Name="textBoxTask" HorizontalAlignment="Left" Margin="8,139,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="134" TextChanged="TextBox_TextChanged" Height="15">
+        <TextBox x:Name="textBoxTask" HorizontalAlignment="Left" Margin="0,203,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146" TextChanged="TextBox_TextChanged" Height="30" Grid.RowSpan="2">
             <TextBox.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -65,7 +51,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <ListView x:Name="lvDataBinding" ItemsSource="{Binding tasklist}" Margin="8,157,383,47">
+        <ListView x:Name="lvDataBinding" ItemsSource="{Binding tasklist}" Margin="0,22,381,10" Width="209" Grid.Row="1">
             <ListView.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -73,7 +59,7 @@
                 </LinearGradientBrush>
             </ListView.BorderBrush>
         </ListView>
-        <TextBlock HorizontalAlignment="Left" Margin="8,128,0,0" TextWrapping="Wrap" Text="Enter Task here" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="10" Height="9" Width="96">
+        <TextBlock HorizontalAlignment="Left" Margin="4,186,0,0" TextWrapping="Wrap" Text="Enter Task here" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="15" Height="18" Width="105">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -82,7 +68,7 @@
             </TextBlock.Foreground>
         </TextBlock>
         <Image HorizontalAlignment="Left" Height="200" Margin="345,7,0,0" VerticalAlignment="Top" Width="289" Source="/Views/n1368325.png"/>
-        <Button Content="Save Task" HorizontalAlignment="Left" Margin="153,134,0,0" VerticalAlignment="Top" Height="20" Width="114" Click="saveTask_Click" FontFamily="Segoe UI Black" BorderBrush="White" IsEnabled="False">
+        <Button Content="Save Task" HorizontalAlignment="Left" Margin="172,208,0,0" VerticalAlignment="Top" Height="20" Width="114" Click="addTask_Click" FontFamily="Segoe UI Black" Grid.RowSpan="2">
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -90,5 +76,6 @@
                 </LinearGradientBrush>
             </Button.Foreground>
         </Button>
+        <TextBox x:Name="descriptionBox" HorizontalAlignment="Left" Margin="232,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="78" TextChanged="TextBox_TextChanged_1"/>
     </Grid>
 </Window>
