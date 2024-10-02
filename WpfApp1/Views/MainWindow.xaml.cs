@@ -14,16 +14,58 @@ namespace WpfApp
     {
         private ObservableCollection<Task> taskList = new ObservableCollection<Task>();
 
+
         public MainWindow()
         {
             InitializeComponent();
             lvDataBinding.ItemsSource = taskList;
+
         }
 
-        //private void addTask_Click(object sender, RoutedEventArgs e)
-        //{
-            
-        //}
+        private void saveTask_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTask = lvDataBinding.SelectedItem as Task;
+
+            var title = textBoxTask.Text;
+            var Description = descriptionBox.Text;
+            var newTask = new WpfApp1.Task()
+            {
+                Title = title,
+                Status = Status.NotDone,
+                Date = DateTime.Now,
+                Description = Description,
+
+            };
+
+
+
+            if (selectedTask != null)
+            {
+                if (!string.IsNullOrEmpty(descriptionBox.Text))
+                {
+                    var foundTask = taskList.FirstOrDefault(x => x == selectedTask);
+
+                    if (foundTask != null)
+                    {
+                        foundTask.Description = descriptionBox.Text;
+                    }
+                    else
+                    {
+                        taskList.Add(newTask);
+                    }
+                }
+
+                // 1. Tjek at felter er udfyldt
+                // 2. TJek efter titel
+                // 3. Find evt eksisterende objekt i liste
+                // 4. Hvis ikke, lav ny
+                // 5. Muliggør kun udfyldelse af titel, eller titel/beskrivelse
+                // 99. Når man har klikket på eksisterende task, udfyld felter med værdier, muliggør at disse kan rettes og gemmes.
+            }
+            taskList.Add(newTask);
+            textBoxTask.Clear();
+            descriptionBox.Clear();
+        }
 
         private void deleteTask(object sender, RoutedEventArgs e)
         {
@@ -78,48 +120,7 @@ namespace WpfApp
         }
 
 
-        private void saveTask_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedTask = lvDataBinding.SelectedItem as Task;
 
-            var title = textBoxTask.Text;
-
-            var newTask = new WpfApp1.Task()
-            {
-                Title = title,
-                Status = Status.NotDone,
-                Date = DateTime.Now,
-
-            };
-
-            taskList.Add(newTask);
-            textBoxTask.Clear();
-
-            if (selectedTask != null)
-            {
-                if (!string.IsNullOrEmpty(descriptionBox.Text))
-                {
-                    var foundTask = taskList.FirstOrDefault(x => x == selectedTask);
-
-                    if (foundTask != null)
-                    {
-                        foundTask.Description = descriptionBox.Text;
-                    } 
-                    else 
-                    {
-                        taskList.Add(new Task{});
-                    }
-                }
-
-                // 1. Tjek at felter er udfyldt
-                // 2. TJek efter titel
-                // 3. Find evt eksisterende objekt i liste
-                // 4. Hvis ikke, lav ny
-                // 5. Muliggør kun udfyldelse af titel, eller titel/beskrivelse
-                // 99. Når man har klikket på eksisterende task, udfyld felter med værdier, muliggør at disse kan rettes og gemmes.
-            }
-
-        }
 
         private static void descriptionBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -129,5 +130,15 @@ namespace WpfApp
         {
             var selectedTask = lvDataBinding.SelectedItem as Task;
         }
-    }    
-} 
+
+        private void lvDataBinding1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DescriptionBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
+}
